@@ -7,6 +7,7 @@
 
 var fs = require('fs');
 var express = require('express');
+const myApp = require("./myApp")
 var app = express();
 
 if (!process.env.DISABLE_XORIGIN) {
