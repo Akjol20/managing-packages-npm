@@ -54,7 +54,9 @@ if (!process.env.DISABLE_XORIGIN) {
 //       .send(err.message || 'SERVER ERROR');
 //   }  
 // })
-
+app.get('/',(req,res) =>{
+    res.send("Hello Express")
+});
 
 //Listen on port set in environment variable or default to 3000
 
