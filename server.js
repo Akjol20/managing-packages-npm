@@ -3,12 +3,12 @@
  * the verification process may break
  * ***************************************************/
 
-'use strict';
+// 'use strict';
 
-// var fs = require('fs');
+var fs = require('fs');
 var bGround =require("fcc-express-bground")
+var myApp = require("./myApp.js")
 var express = require('express');
-const myApp = require("./myApp")
 var app = express();
 
 if (!process.env.DISABLE_XORIGIN) {
