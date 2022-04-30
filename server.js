@@ -7,7 +7,7 @@
 
 var fs = require('fs');
 var bGround =require("fcc-express-bground")
-var myApp = require("./myApp.js")
+var myApp = require("./myApp")
 var express = require('express');
 var app = express();
 
@@ -54,6 +54,7 @@ app.use(function(err, req, res, next) {
       .send(err.message || 'SERVER ERROR');
   }  
 })
+ app.use(myApp)
 
 //Listen on port set in environment variable or default to 3000
 const listener = app.listen(process.env.PORT || 3000, function () {
