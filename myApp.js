@@ -18,11 +18,11 @@ app.get('/',(req,res) =>{
 
 
 app.get('/json',(req,res)=>{
-    console.log(process.env.MESSAGE_STYLE) 
+    var jsonRes = {"message":"Hello json"};
+    
     if(process.env.MESSAGE_STYLE === "uppercase"){
-        res.json({"message":"HELLO WORLD"})
-    }else {
-        res.json({"message":"Hello json"})
+         jsonRes.message = jsonRes.message.toUpperCase()
     }
+    res.json(jsonRes)
 })
 module.exports = app;
