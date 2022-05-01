@@ -25,7 +25,7 @@ if (!process.env.DISABLE_XORIGIN) {
 }
 
 // app.use('/public', express.static(process.cwd() + '/public'));
-app.use("/public",express.static(__dirname +'/public'))
+
 // app.route('/_api/package.json')
 //   .get(function(req, res, next) {
 //     console.log('requested');
@@ -57,9 +57,7 @@ app.use("/public",express.static(__dirname +'/public'))
 // app.get('/',(req,res) =>{
 //     res.send("Hello Express")
 // });
-app.get('/',(req,res) =>{
-  res.sendFile(__dirname + "/views/index.html")
-});
+
 
 //Listen on port set in environment variable or default to 3000
 
