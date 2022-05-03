@@ -35,7 +35,8 @@ app.get('/json',(req,res)=>{
 })
 
 app.get('/now', function(req, res, next){
-  req.time = new Date().toUTCString();
+  let newEnd =  new Date().toUTCString() + 20
+  req.time = newEnd
   next();
 },
   function(req, res) {
