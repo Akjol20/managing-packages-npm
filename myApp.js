@@ -34,16 +34,19 @@ app.get('/json',(req,res)=>{
     res.json(jsonRes)
 })
 
-const getTheCurrentTimeString = () =>{
-  return new Date().toString()
-}
-app.get("/now",(req,res,next) => {
-     req.time = getTheCurrentTimeString();
-  next();
-},(req,res) => {
-  res.json({'time':req.time})
-}
-)
+var delayInMilliseconds = 1000; //1 second
+
+app.get('/now', (req, res, next) => {
+     req.time = new Date().toString();
+     next()
+}, (req, res) => {
+setTimeout(function() {
+  //your code to be executed after 1 second
+    res.json({
+      'time': req.time
+    })
+}, delayInMilliseconds);
+})
 
 module.exports = app;
 
