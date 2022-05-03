@@ -34,16 +34,16 @@ app.get('/json',(req,res)=>{
     res.json(jsonRes)
 })
 
-var delayInMilliseconds = 1000; //1 second
+var delayInMilliseconds = 19000; //1 second
 
 app.get('/now', (req, res, next) => {
      req.time = new Date().toString();
      next()
 }, (req, res) => {
-setTimeout(function() {
+  setTimeout( () => {
   //your code to be executed after 1 second
     res.json({
-      'time': req.time
+       time: req.time
     })
 }, delayInMilliseconds);
 })
