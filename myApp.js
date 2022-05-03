@@ -34,15 +34,12 @@ app.get('/json',(req,res)=>{
     res.json(jsonRes)
 })
 
-app.get('/now', function(req, res, next){
-  let newEnd =  new Date().toUTCString() + 20
-  req.time = newEnd
+app.get('/now', (req, res, next)=>{
+  req.time = new Date(Date.now() - 30000).toString();
   next();
-},
-  function(req, res) {
-    res.send({"time": req.time});
-  }       
-);
+}, (req, res)=>{
+  res.json({time: req.time});
+});
 module.exports = app;
 
  
