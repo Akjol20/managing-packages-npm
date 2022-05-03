@@ -2,9 +2,11 @@ var express = require('express');
 const res = require('express/lib/response');
 var app = express();
 require('dotenv').config();
+
+
 app.use((req,res,next) => {
-   console.log(req.method+" "+req.path+" - "+req.ip)
-  next()
+   console.log(req.method +" "+ req.path +" - "+ req.ip)
+  next();
 })
 
 
@@ -31,6 +33,19 @@ app.get('/json',(req,res)=>{
     }
     res.json(jsonRes)
 })
+
+const getTheCurrentTimeString = () =>{
+  return new Date().toString()
+}
+
+app.get("/now",(req,res,next) => {
+     req.time = getTheCurrentTimeString();
+  next();
+},(req,res) => {
+  res.json({time:req.time})
+}
+)
+
 module.exports = app;
 
  
