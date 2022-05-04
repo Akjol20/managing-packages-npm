@@ -12,6 +12,9 @@ app.use((req,res,next) => {
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
+app.get("/body-parsed-info", (req,res) =>{
+    res.json({'parsed':bodyParser})
+})
 console.log("Hello World")
 
 app.use("/public",express.static(__dirname +'/public'))
@@ -51,6 +54,10 @@ app.get("/:word/echo",(req,res) => {
 })
 app.get("/name",(req,res) => {
    res.json({name:req.query.first +" "+req.query.last});
+})
+
+app.post("/name", (req,res)=>{
+    res.json({name:req.body.first+" "+req.body.last})
 })
 
 module.exports = app;
